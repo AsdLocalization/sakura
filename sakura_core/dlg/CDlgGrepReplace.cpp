@@ -133,11 +133,14 @@ BOOL CDlgGrepReplace::OnInitDialog( HWND hwndDlg, WPARAM wParam, LPARAM lParam )
 	m_comboDelText2.pRecent = &m_cRecentReplace;
 	SetComboBoxDeleter( GetItemHwnd( IDC_COMBO_TEXT2 ), &m_comboDelText2 );
 
+	BOOL bRet = CDlgGrep::OnInitDialog( hwndDlg, wParam, lParam );
+	if( !bRet ) return bRet;
+
 	HFONT hFontOld = (HFONT)::SendMessageAny( GetItemHwnd( IDC_COMBO_TEXT2 ), WM_GETFONT, 0, 0 );
 	HFONT hFont = SetMainFont( GetItemHwnd( IDC_COMBO_TEXT2 ) );
 	m_cFontText2.SetFont( hFontOld, hFont, GetItemHwnd( IDC_COMBO_TEXT2 ) );
 
-	return CDlgGrep::OnInitDialog( hwndDlg, wParam, lParam );
+	return bRet;
 }
 
 BOOL CDlgGrepReplace::OnDestroy()
@@ -196,10 +199,7 @@ int CDlgGrepReplace::GetData( void )
 	m_bPaste = IsDlgButtonCheckedBool( GetHwnd(), IDC_CHK_PASTE );
 
 	/* 置換後 */
-	int nBufferSize = ::GetWindowTextLength( GetItemHwnd(IDC_COMBO_TEXT2) ) + 1;
-	auto vText = std::make_unique<WCHAR[]>(nBufferSize);
-	::DlgItem_GetText( GetHwnd(), IDC_COMBO_TEXT2, &vText[0], nBufferSize);
-	m_strText2 = &vText[0];
+	ApiWrap::DlgItem_GetText(GetHwnd(), IDC_COMBO_TEXT2, m_strText2 );
 
 	if( 0 == ::GetWindowTextLength( GetItemHwnd(IDC_COMBO_TEXT) ) ){
 		WarningMessage(	GetHwnd(), LS(STR_DLGREPLC_REPSTR) );

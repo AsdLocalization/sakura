@@ -349,14 +349,20 @@ BOOL CDlgGrep::OnInitDialog( HWND hwndDlg, WPARAM wParam, LPARAM lParam )
 	m_comboDelExcludeFolder.pRecent = &m_cRecentExcludeFolder;
 	SetComboBoxDeleter(GetItemHwnd(IDC_COMBO_EXCLUDE_FOLDER), &m_comboDelExcludeFolder);
 
-	// フォント設定	2012/11/27 Uchi
-	HFONT hFontOld = (HFONT)::SendMessageAny( GetItemHwnd( IDC_COMBO_TEXT ), WM_GETFONT, 0, 0 );
-	HFONT hFont = SetMainFont( GetItemHwnd( IDC_COMBO_TEXT ) );
-	m_cFontText.SetFont( hFontOld, hFont, GetItemHwnd( IDC_COMBO_TEXT ) );
+	BOOL bRet = CDialog::OnInitDialog( hwndDlg, wParam, lParam );
+	if( !bRet ) return bRet;
 
-	/* 基底クラスメンバ */
-//	CreateSizeBox();
-	return CDialog::OnInitDialog( hwndDlg, wParam, lParam );
+	// フォント設定	2012/11/27 Uchi
+	const int nItemIds[] = { IDC_COMBO_TEXT, IDC_COMBO_FILE, IDC_COMBO_FOLDER, IDC_COMBO_EXCLUDE_FILE, IDC_COMBO_EXCLUDE_FOLDER };
+	m_cFontDeleters.resize( _countof( nItemIds ) );
+	for( size_t i = 0; i < _countof( nItemIds ); ++i ){
+		HWND hwndItem = GetItemHwnd( nItemIds[i] );
+		HFONT hFontOld = (HFONT)::SendMessageAny( hwndItem, WM_GETFONT, 0, 0 );
+		HFONT hFont = SetMainFont( hwndItem );
+		m_cFontDeleters[i].SetFont( hFontOld, hFont, hwndItem );
+	}
+
+	return bRet;
 }
 
 /*! @brief フォルダ指定EditBoxのコールバック関数
@@ -397,7 +403,9 @@ LRESULT CALLBACK OnFolderProc(HWND hwnd,UINT msg,WPARAM wparam,LPARAM lparam)
 
 BOOL CDlgGrep::OnDestroy()
 {
-	m_cFontText.ReleaseOnDestroy();
+	for( size_t i = 0; i < m_cFontDeleters.size(); ++i ){
+		m_cFontDeleters[i].ReleaseOnDestroy();
+	}
 	return CDialog::OnDestroy();
 }
 
@@ -783,11 +791,8 @@ int CDlgGrep::GetData( void )
 	m_bGrepSeparateFolder = IsDlgButtonCheckedBool( GetHwnd(), IDC_CHECK_SEP_FOLDER );
 
 	/* 検索文字列 */
-	int nBufferSize = ::GetWindowTextLength( GetItemHwnd(IDC_COMBO_TEXT) ) + 1;
-	auto vText = std::make_unique<WCHAR[]>(nBufferSize);
-	::DlgItem_GetText( GetHwnd(), IDC_COMBO_TEXT, &vText[0], nBufferSize);
-	m_strText = &vText[0];
-	m_bSetText = true;
+	m_bSetText = ApiWrap::DlgItem_GetText( GetHwnd(), IDC_COMBO_TEXT, m_strText );;
+
 	/* 検索ファイル */
 	::DlgItem_GetText( GetHwnd(), IDC_COMBO_FILE, m_szFile, _countof2(m_szFile) );
 	/* 検索フォルダ */
