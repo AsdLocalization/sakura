@@ -1,4 +1,4 @@
-ï»¿#if VER < EncodeVer(5,6,1)
+#if VER < EncodeVer(5,6,1)
   #define MySendTo "{sendto}"
 #else
   #define MySendTo "{usersendto}"
@@ -34,84 +34,178 @@ DisableWelcomePage=no
 
 PrivilegesRequired=None
 
-; å‡ºåŠ›å…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+; ³öÁ¦ÏÈ¥Ç¥£¥ì¥¯¥È¥ê
 OutputDir=Output-{#OutputSuffix}
 
-; ã‚¨ãƒ‡ã‚£ã‚¿ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã«å¿œã˜ã¦æ›¸ãæ›ãˆã‚‹å ´æ‰€
+; ¥¨¥Ç¥£¥¿¤Î¥Ð©`¥¸¥ç¥ó¤Ëê¤¸¤Æ•ø¤­“Q¤¨¤ëˆöËù
 OutputBaseFilename=sakura_install{#MyAppVerH}-{#MyArchitecture}
 VersionInfoVersion={#MyAppVer}
 VersionInfoProductVersion={#MyAppVer}
 
-; OSãƒãƒ¼ã‚¸ãƒ§ãƒ³åˆ¶é™(Windows 7 ä»¥é™ã«å¯¾å¿œ)
+; OS¥Ð©`¥¸¥ç¥óÖÆÏÞ(Windows 7 ÒÔ½µ¤ËŒê)
 MinVersion=6.1
 
 [Languages]
 Name: "ja"; MessagesFile: "compiler:Languages\Japanese.isl"
 Name: "en"; MessagesFile: "compiler:Default.isl"; InfoBeforeFile: "instmaterials\info_us.txt"
+Name: "zh_hans"; MessagesFile: "compiler:Languages\ChineseSimplified.isl"; InfoBeforeFile: "instmaterials\info_zh_hans.txt"
+Name: "zh_hant"; MessagesFile: "compiler:Languages\ChineseTraditional.isl"; InfoBeforeFile: "instmaterials\info_zh_hant.txt"
 
 [CustomMessages]
 en.InfoBeforeFile=instmaterials\info_en.txt
 ja.InfoBeforeFile=instmaterials\info.txt
+zh_hans.InfoBeforeFile=instmaterials\info.txt
+zh_hant.InfoBeforeFile=instmaterials\info.txt
+
 en.AppName=SAKURA Editor
-ja.AppName=ã‚µã‚¯ãƒ©ã‚¨ãƒ‡ã‚£ã‚¿
+ja.AppName=¥µ¥¯¥é¥¨¥Ç¥£¥¿
+zh_hans.AppName=Ó£»¨±à¼­Æ÷
+zh_hant.AppName=¥µ¥¯¥é¥¨¥Ç¥£¥¿
+
 en.AppVerName=SAKURA Editor
-ja.AppVerName=SAKURA Editor(ã‚µã‚¯ãƒ©ã‚¨ãƒ‡ã‚£ã‚¿)
+ja.AppVerName=SAKURA Editor(¥µ¥¯¥é¥¨¥Ç¥£¥¿)
+zh_hans.AppVerName=Ó£»¨±à¼­Æ÷
+zh_hant.AppVerName=SAKURA Editor(¥µ¥¯¥é¥¨¥Ç¥£¥¿)
+
 en.AppPublisher=SAKURA Editor developers
-ja.AppPublisher=ã‚µã‚¯ãƒ©ã‚¨ãƒ‡ã‚£ã‚¿é–‹ç™ºãƒãƒ¼ãƒ 
+ja.AppPublisher=¥µ¥¯¥é¥¨¥Ç¥£¥¿é_°k¥Á©`¥à
+zh_hans.AppPublisher=Ó£»¨±à¼­Æ÷ ¿ª·¢Õß
+zh_hant.AppPublisher=¥µ¥¯¥é¥¨¥Ç¥£¥¿é_°k¥Á©`¥à
+
 en.TypesAll=All
-ja.TypesAll=ã™ã¹ã¦
+ja.TypesAll=¤¹¤Ù¤Æ
+zh_hans.TypesAll=È«²¿°²×°
+zh_hant.TypesAll=¤¹¤Ù¤Æ
+
 en.TypesEditorWithHelp=Editor with Help
-ja.TypesEditorWithHelp=æœ¬ä½“ã¨ãƒ˜ãƒ«ãƒ—
+ja.TypesEditorWithHelp=±¾Ìå¤È¥Ø¥ë¥×
+zh_hans.TypesEditorWithHelp=±¾ÌåÓë°ïÖúÎÄ¼þ
+zh_hant.TypesEditorWithHelp=±¾Ìå¤È¥Ø¥ë¥×
+
 en.TypesEditorOnly=Editor Only
-ja.TypesEditorOnly=æœ¬ä½“ã®ã¿
+ja.TypesEditorOnly=±¾Ìå¤Î¤ß
+zh_hans.TypesEditorOnly=½ö°²×°±¾Ìå
+zh_hant.TypesEditorOnly=±¾Ìå¤Î¤ß
+
 en.TypesCustom=Custom
-ja.TypesCustom=ã‚«ã‚¹ã‚¿ãƒ 
+ja.TypesCustom=¥«¥¹¥¿¥à
+zh_hans.TypesCustom=×Ô¶¨Òå
+zh_hant.TypesCustom=¥«¥¹¥¿¥à
+
 en.ComponentsMain=SAKURA Editor itself
-ja.ComponentsMain=ã‚µã‚¯ãƒ©ã‚¨ãƒ‡ã‚£ã‚¿æœ¬ä½“
+ja.ComponentsMain=¥µ¥¯¥é¥¨¥Ç¥£¥¿±¾Ìå
+zh_hans.ComponentsMain=Ó£»¨±à¼­Æ÷
+zh_hant.ComponentsMain=¥µ¥¯¥é¥¨¥Ç¥£¥¿±¾Ìå
+
 en.ComponentsHelp=help files
-ja.ComponentsHelp=ãƒ˜ãƒ«ãƒ—ãƒ•ã‚¡ã‚¤ãƒ«
+ja.ComponentsHelp=¥Ø¥ë¥×¥Õ¥¡¥¤¥ë
+zh_hans.ComponentsHelp=°ïÖúÎÄ¼þ
+zh_hant.ComponentsHelp=¥Ø¥ë¥×¥Õ¥¡¥¤¥ë
+
 en.ComponentsKeyword=KeyWord files
-ja.ComponentsKeyword=KeyWordãƒ•ã‚¡ã‚¤ãƒ«
+ja.ComponentsKeyword=KeyWord¥Õ¥¡¥¤¥ë
+zh_hans.ComponentsKeyword=Óï·¨ÌáÊ¾ÎÄ¼þ
+zh_hant.ComponentsKeyword=KeyWord¥Õ¥¡¥¤¥ë
+
 en.startmenu=Create &Start Menu
-ja.startmenu=ã‚¹ã‚¿ãƒ¼ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’ä½œæˆ(&S)
+ja.startmenu=¥¹¥¿©`¥È¥á¥Ë¥å©`¤ò×÷³É(&S)
+zh_hans.startmenu=Ìí¼Óµ½¿ªÊ¼²Ëµ¥(&S)
+zh_hant.startmenu=¥¹¥¿©`¥È¥á¥Ë¥å©`¤ò×÷³É(&S)
+
 en.proglist=Add &Program List
-ja.proglist=ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸€è¦§ã«è¿½åŠ (&P)
+ja.proglist=¥×¥í¥°¥é¥àÒ»ÓE¤Ë×·¼Ó(&P)
+zh_hans.proglist=Ìí¼Óµ½³ÌÐòÁÐ±í(&P)
+zh_hant.proglist=¥×¥í¥°¥é¥àÒ»ÓE¤Ë×·¼Ó(&P)
+
 en.fileassoc=Add "Open with SAKURA &Editor"
-ja.fileassoc=ã€ŒSAKURA Editorã§é–‹ãã€ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®è¿½åŠ (&E)
+ja.fileassoc=¡¸SAKURA Editor¤Çé_¤¯¡¹¥á¥Ë¥å©`¤Î×·¼Ó(&E)
+zh_hans.fileassoc=Ìí¼Ó"ÓÃ Ó£»¨±à¼­Æ÷ ´ò¿ª"(&E)
+zh_hant.fileassoc=¡¸SAKURA Editor¤Çé_¤¯¡¹¥á¥Ë¥å©`¤Î×·¼Ó(&E)
+
 en.sendto=Add to Send&To Menu
-ja.sendto=é€ã‚‹ã«è¿½åŠ (&T)
+ja.sendto=ËÍ¤ë¤Ë×·¼Ó(&T)
+zh_hans.sendto=Ìí¼Óµ½"·¢ËÍµ½"²Ëµ¥(&T)
+zh_hant.sendto=ËÍ¤ë¤Ë×·¼Ó(&T)
+
 en.sakuragrep=Add "&Grep with SAKURA Editor"
-ja.sakuragrep=ã€ŒSAKURA Editorã§Grepã€ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®è¿½åŠ (&G)
+ja.sakuragrep=¡¸SAKURA Editor¤ÇGrep¡¹¥á¥Ë¥å©`¤Î×·¼Ó(&G)
+zh_hans.sakuragrep=Ìí¼Óµ½ "Grep with SAKURA Editor"(&G)
+zh_hant.sakuragrep=¡¸SAKURA Editor¤ÇGrep¡¹¥á¥Ë¥å©`¤Î×·¼Ó(&G)
+
 en.fileassocMenu=Open with SAKURA &Editor
-ja.fileassocMenu=SAKURA Editorã§é–‹ã(&E)
+ja.fileassocMenu=SAKURA Editor¤Çé_¤¯(&E)
+zh_hans.fileassocMenu=ÓÃ Ó£»¨±à¼­Æ÷ ´ò¿ª(&E)
+zh_hant.fileassocMenu=SAKURA Editor¤Çé_¤¯(&E)
+
 en.sakuragrepMenu=&Grep with SAKURA Editor
-ja.sakuragrepMenu=SAKURA Editorã§Grep(&G)
+ja.sakuragrepMenu=SAKURA Editor¤ÇGrep(&G)
+zh_hans.sakuragrepMenu=Grep with SAKURA Editor(&G)
+zh_hant.sakuragrepMenu=SAKURA Editor¤ÇGrep(&G)
+
 en.residentStartup=&Resident at startup
-ja.residentStartup=èµ·å‹•æ™‚ã«å¸¸é§(&R)
+ja.residentStartup=Æð„Ó•r¤Ë³£ñv(&R)
+zh_hans.residentStartup=¿ª»úÊ±Æô¶¯(&R)
+zh_hant.residentStartup=Æð„Ó•r¤Ë³£ñv(&R)
+
 en.IconPreferencefolder=Preference folder
-ja.IconPreferencefolder=è¨­å®šãƒ•ã‚©ãƒ«ãƒ€
+ja.IconPreferencefolder=ÔO¶¨¥Õ¥©¥ë¥À
+zh_hans.IconPreferencefolder=ÎÄ¼þ¼ÐÉèÖÃ
+zh_hant.IconPreferencefolder=ÔO¶¨¥Õ¥©¥ë¥À
+
 en.StartNow=Start now
-ja.StartNow=ä»Šã™ãã‚µã‚¯ãƒ©ã‚¨ãƒ‡ã‚£ã‚¿ã‚’èµ·å‹•
+ja.StartNow=½ñ¤¹¤°¥µ¥¯¥é¥¨¥Ç¥£¥¿¤òÆð„Ó
+zh_hans.StartNow=ÏÖÔÚÆô¶¯
+zh_hant.StartNow=½ñ¤¹¤°¥µ¥¯¥é¥¨¥Ç¥£¥¿¤òÆð„Ó
+
 en.MultiUser=Install in compatibility mode. When editing system files and programs with user authority, editing results may not be accessible from other applications. (VirtualStore function)
-ja.MultiUser=äº’æ›ãƒ¢ãƒ¼ãƒ‰ã§ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ï¼Žã‚·ã‚¹ãƒ†ãƒ ãƒ•ã‚¡ã‚¤ãƒ«ãŠã‚ˆã³ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’ãƒ¦ãƒ¼ã‚¶æ¨©é™ã§ç·¨é›†ã™ã‚‹ã¨ç·¨é›†çµæžœãŒä»–ã®ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‹ã‚‰å‚ç…§ã§ããªã„ã“ã¨ãŒã‚ã‚Šã¾ã™ï¼Ž(VirtualStoreæ©Ÿèƒ½)
+ja.MultiUser=»¥“Q¥â©`¥É¤Ç¥¤¥ó¥¹¥È©`¥ë¤·¤Þ¤¹£®¥·¥¹¥Æ¥à¥Õ¥¡¥¤¥ë¤ª¤è¤Ó¥×¥í¥°¥é¥à¤ò¥æ©`¥¶˜ØÏÞ¤Ç¾Ž¼¯¤¹¤ë¤È¾Ž¼¯½Y¹û¤¬Ëû¤Î¥¢¥×¥ê¥±©`¥·¥ç¥ó¤«¤é²ÎÕÕ¤Ç¤­¤Ê¤¤¤³¤È¤¬¤¢¤ê¤Þ¤¹£®(VirtualStore™CÄÜ)
+zh_hans.MultiUser=Èí¼þ½«»áÒÔ¼æÈÝÄ£Ê½°²×°¡£Ê¹ÓÃ·Ç¹ÜÀíÔ±ÓÃ»§±à¼­ÅäÖÃÎÄ¼þÊ±£¬ÎÄ¼þ¿ÉÄÜÎÞ·¨±»¹ÜÀíÔ±ÓÃ»§·ÃÎÊ¡£(VirtualStore¹¦ÄÜ)
+zh_hant.MultiUser=»¥“Q¥â©`¥É¤Ç¥¤¥ó¥¹¥È©`¥ë¤·¤Þ¤¹£®¥·¥¹¥Æ¥à¥Õ¥¡¥¤¥ë¤ª¤è¤Ó¥×¥í¥°¥é¥à¤ò¥æ©`¥¶˜ØÏÞ¤Ç¾Ž¼¯¤¹¤ë¤È¾Ž¼¯½Y¹û¤¬Ëû¤Î¥¢¥×¥ê¥±©`¥·¥ç¥ó¤«¤é²ÎÕÕ¤Ç¤­¤Ê¤¤¤³¤È¤¬¤¢¤ê¤Þ¤¹£®(VirtualStore™CÄÜ)
+
 en.InitWiz_Title=Selection of Preference preservation method
-ja.InitWiz_Title=è¨­å®šä¿å­˜æ–¹æ³•ã®é¸æŠž
+ja.InitWiz_Title=ÔO¶¨±£´æ·½·¨¤Îßx’k
+zh_hans.InitWiz_Title=ÅäÖÃÎÄ¼þ±£´æÎ»ÖÃ
+zh_hant.InitWiz_Title=ÔO¶¨±£´æ·½·¨¤Îßx’k
+
 en.InitWiz_SubTitle=Please choose whether you want to save the settings for each user or to the location of the executable file
-ja.InitWiz_SubTitle=è¨­å®šã‚’ãƒ¦ãƒ¼ã‚¶æ¯Žã«ä¿å­˜ã™ã‚‹ã‹å®Ÿè¡Œãƒ•ã‚¡ã‚¤ãƒ«ã®å ´æ‰€ã¸ä¿å­˜ã™ã‚‹ã‹ã‚’é¸æŠžã—ã¦ãã ã•ã„
-en.InitWiz_Comment=Please do not change if you're unsure about this
-ja.InitWiz_Comment=ã‚ˆãã‚ã‹ã‚‰ãªã„å ´åˆã¯å¤‰æ›´ã—ãªã„ã§ãã ã•ã„
+ja.InitWiz_SubTitle=ÔO¶¨¤ò¥æ©`¥¶š°¤Ë±£´æ¤¹¤ë¤«ŒgÐÐ¥Õ¥¡¥¤¥ë¤ÎˆöËù¤Ø±£´æ¤¹¤ë¤«¤òßx’k¤·¤Æ¤¯¤À¤µ¤¤
+zh_hans.InitWiz_SubTitle=Ñ¡Ôñ½«SukuraÅäÖÃÎÄ¼þ±£´æÖÁµ±Ç°ÓÃ»§»òÈí¼þÄ¿Â¼ÄÚ
+zh_hant.InitWiz_SubTitle=ÔO¶¨¤ò¥æ©`¥¶š°¤Ë±£´æ¤¹¤ë¤«ŒgÐÐ¥Õ¥¡¥¤¥ë¤ÎˆöËù¤Ø±£´æ¤¹¤ë¤«¤òßx’k¤·¤Æ¤¯¤À¤µ¤¤
+
+en.InitWiz_Comment=Please do not change if you are unsure about this
+ja.InitWiz_Comment=¤è¤¯¤ï¤«¤é¤Ê¤¤ˆöºÏ¤Ï‰ä¸ü¤·¤Ê¤¤¤Ç¤¯¤À¤µ¤¤
+zh_hans.InitWiz_Comment=ÈôÄú²»Çå³þ´ËÑ¡Ïî£¬Çë²»ÒªÐÞ¸Ä
+zh_hant.InitWiz_Comment=¤è¤¯¤ï¤«¤é¤Ê¤¤ˆöºÏ¤Ï‰ä¸ü¤·¤Ê¤¤¤Ç¤¯¤À¤µ¤¤
+
 en.InitWiz_Check=Manage Preference individually for each user
-ja.InitWiz_Check=è¨­å®šã‚’ãƒ¦ãƒ¼ã‚¶æ¯Žã«å€‹åˆ¥ã«ç®¡ç†ã™ã‚‹
+ja.InitWiz_Check=ÔO¶¨¤ò¥æ©`¥¶š°¤Ë‚€„e¤Ë¹ÜÀí¤¹¤ë
+zh_hans.InitWiz_Check=½«Ã¿¸öÓÃ»§µÄÅäÖÃÎÄ¼þµ¥¶À±£´æ
+zh_hant.InitWiz_Check=ÔO¶¨¤ò¥æ©`¥¶š°¤Ë‚€„e¤Ë¹ÜÀí¤¹¤ë
+
 en.ReadyMemo_SaveLocation=Preference file etc. save location
-ja.ReadyMemo_SaveLocation=è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ç­‰æ ¼ç´å ´æ‰€
+ja.ReadyMemo_SaveLocation=ÔO¶¨¥Õ¥¡¥¤¥ëµÈ¸ñ¼{ˆöËù
+zh_hans.ReadyMemo_SaveLocation=Éè¶¨ÎÄ¼þ±£´æÎ»ÖÃ
+zh_hant.ReadyMemo_SaveLocation=ÔO¶¨¥Õ¥¡¥¤¥ëµÈ¸ñ¼{ˆöËù
+
 en.ReadyMemo_UserProfileDir=User-Profile directory
-ja.ReadyMemo_UserProfileDir=ãƒ¦ãƒ¼ã‚¶å€‹åˆ¥ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+ja.ReadyMemo_UserProfileDir=¥æ©`¥¶‚€„e¥Ç¥£¥ì¥¯¥È¥ê
+zh_hans.ReadyMemo_UserProfileDir=ÓÃ»§ÅäÖÃÎÄ¼þÄ¿Â¼
+zh_hant.ReadyMemo_UserProfileDir=¥æ©`¥¶‚€„e¥Ç¥£¥ì¥¯¥È¥ê
+
 en.ReadyMemo_VirtualStoreDisable=Disable
-ja.ReadyMemo_VirtualStoreDisable=ç„¡åŠ¹
+ja.ReadyMemo_VirtualStoreDisable=Ÿo„¿
+zh_hans.ReadyMemo_VirtualStoreDisable=ÎÞÐ§
+zh_hant.ReadyMemo_VirtualStoreDisable=Ÿo„¿
+
 en.ReadyMemo_ExecProfileDir=Same as the executable file
-ja.ReadyMemo_ExecProfileDir=å®Ÿè¡Œãƒ•ã‚¡ã‚¤ãƒ«ã¨åŒä¸€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+ja.ReadyMemo_ExecProfileDir=ŒgÐÐ¥Õ¥¡¥¤¥ë¤ÈÍ¬Ò»¥Ç¥£¥ì¥¯¥È¥ê
+zh_hans.ReadyMemo_ExecProfileDir=Óë¿ÉÖ´ÐÐÎÄ¼þÏàÍ¬
+zh_hant.ReadyMemo_ExecProfileDir=ŒgÐÐ¥Õ¥¡¥¤¥ë¤ÈÍ¬Ò»¥Ç¥£¥ì¥¯¥È¥ê
+
 en.ReadyMemo_VirtualStoreEnable=Enable
-ja.ReadyMemo_VirtualStoreEnable=æœ‰åŠ¹
+ja.ReadyMemo_VirtualStoreEnable=ÓÐ„¿
+zh_hans.ReadyMemo_VirtualStoreEnable=ÉúÐ§
+zh_hant.ReadyMemo_VirtualStoreEnable=ÓÐ„¿
 
 
 
@@ -240,7 +334,7 @@ Name: "{#MySendTo}\{cm:AppName}";                                            Fil
 FileName: "{app}\sakura.exe"; Description: "{cm:StartNow}"; WorkingDir: "{app}"; Flags: postinstall nowait skipifsilent; Check: CheckPrivilege(false);
 
 [UninstallDelete]
-;Uninstallæ™‚ã«ç¢ºèªç„¡ãæ¶ˆã•ã‚Œã‚‹ã®ã§ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ
+;Uninstall•r¤Ë´_ÕJŸo¤¯Ïû¤µ¤ì¤ë¤Î¤Ç¥³¥á¥ó¥È¥¢¥¦¥È
 ;Type: files; Name: "{app}\sakura.ini"
 ;Type: files; Name: "{userappdata}\sakura\sakura.ini"; Check: isMultiUserEnabled
 ;Type: files; Name: "{app}\sakura.ini"; Check: isMultiUserDisabled
@@ -370,7 +464,7 @@ begin
       ( MultiUserPage.Values[0] = False ) then
       begin
 {
-         Program Filesç­‰ã®ã‚·ã‚¹ãƒ†ãƒ ãƒ•ã‚©ãƒ«ãƒ€ã¸ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹å ´åˆã¯UACã‚’ç„¡åŠ¹ã«ã—ãªã„ã¨è¨­å®šãŒä¿å­˜ã§ãã¾ã›ã‚“ã€‚
+         Program FilesµÈ¤Î¥·¥¹¥Æ¥à¥Õ¥©¥ë¥À¤Ø¥¤¥ó¥¹¥È©`¥ë¤¹¤ëˆöºÏ¤ÏUAC¤òŸo„¿¤Ë¤·¤Ê¤¤¤ÈÔO¶¨¤¬±£´æ¤Ç¤­¤Þ¤»¤ó¡£
 }
          selected := MsgBox(
           CustomMessage('MultiUser'),
